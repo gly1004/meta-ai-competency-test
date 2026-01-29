@@ -623,8 +623,9 @@
         @media (max-width: 600px) {
             .header h1 { font-size: 1.4rem; }
             .question-text { font-size: 1rem; }
-            .buttons { flex-direction: column; }
-            .btn { width: 100%; }
+            .btn { padding: 14px 20px; }
+            .btn-prev { flex: 0 0 auto; }
+            .btn-next { flex: 1; }
             .total-score { font-size: 2.5rem; }
         }
     </style>
@@ -999,6 +1000,9 @@
         function showResult() {
             document.getElementById('testScreen').style.display = 'none';
             document.getElementById('resultScreen').style.display = 'block';
+
+            // 페이지 상단으로 스크롤
+            window.scrollTo({ top: 0, behavior: 'smooth' });
 
             // 점수 계산
             const score1 = (answers[1] || 0) + (answers[2] || 0) + (answers[3] || 0);
